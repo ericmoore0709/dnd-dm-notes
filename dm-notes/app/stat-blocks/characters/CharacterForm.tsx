@@ -18,12 +18,12 @@ export default function CharacterForm({ formAction, existingData }: { formAction
     }
 
     return (
-        <form onSubmit={handleFormSubmit}>
-            <div>
-                <label htmlFor="id">ID</label>
-                <input id="id" name="id" value={formData.id} onChange={handleInputChange} />
+        <form className="w-75 mx-auto my-2 py-2" onSubmit={handleFormSubmit}>
+            <div className="flex justify-center">
+                <label className="mr-2" htmlFor="id">ID</label>
+                <input className="border rounded cursor-text" id="id" name="id" value={formData.id} onChange={handleInputChange} />
             </div>
-            <button type="submit">Go!</button>
+            <button className="mt-2 border rounded p-1 cursor-pointer" type="submit">Go!</button>
         </form>
     );
 }

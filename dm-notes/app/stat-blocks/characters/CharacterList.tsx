@@ -16,14 +16,16 @@ export default function CharacterList() {
 
     return (
         <div>
-            <button onClick={() => setFormOpen(true)}>Create New Character</button>
             {formOpen && <CharacterForm formAction={saveNewCharacter} existingData={null} />}
+            <button className="border rounded p-1 cursor-pointer" onClick={() => setFormOpen(!formOpen)}>{formOpen ? 'Cancel' : 'Create New Character'}</button>
             {(characters.length === 0) && <span>No characters found.</span>}
-            {(characters.length > 0) && (<ul>
-                {characters.map(c => (
-                    <li key={c.id}><Link href={'characters/' + c.id}>{c.id}</Link></li>
-                ))}
-            </ul>)}
+            {(characters.length > 0) && (
+                <ul className="my-4">
+                    {characters.map(c => (
+                        <li className="my-1 underline" key={c.id}><Link href={'characters/' + c.id}>{c.id}</Link></li>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 }
