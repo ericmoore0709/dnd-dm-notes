@@ -1,0 +1,11 @@
+{
+	"name": "Node.js & PostgreSQL",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"features": {
+		"ghcr.io/devcontainers-extra/features/jshint:2": {}
+	},
+	"forwardPorts": [3000, 5432],
+	"postCreateCommand": "npm i"
+}
