@@ -1,2 +1,2 @@
 # dnd-dm-notes
-Just a repository for userful components, algorithms, and other functions.
+Just a repository for useful components, algorithms, and other functions.
