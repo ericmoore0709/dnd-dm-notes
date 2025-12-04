@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS characters;
+
+CREATE TABLE IF NOT EXISTS characters (
+    id SERIAL,
+    name VARCHAR(50) UNIQUE NOT NULL
+);

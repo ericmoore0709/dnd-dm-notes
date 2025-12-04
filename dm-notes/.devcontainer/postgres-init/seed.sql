@@ -1,0 +1,1 @@
+INSERT INTO characters (name) VALUES ('Gundren Rockseeker'), ('Sildar Hallwinter');

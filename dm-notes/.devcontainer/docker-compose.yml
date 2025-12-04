@@ -14,8 +14,9 @@ services:
     restart: unless-stopped
     volumes:
       - postgres-data:/var/lib/postgresql
+      - ./postgres-init:/docker-entrypoint-initdb.d
     env_file:
-      - .env
+      - ../.env
     ports: 
       - "5432:5432"
 
