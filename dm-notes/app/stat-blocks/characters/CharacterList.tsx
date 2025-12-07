@@ -5,12 +5,12 @@ import { Character } from "./Character";
 import Link from "next/link";
 import CharacterForm from "./CharacterForm";
 
-export default function CharacterList() {
-    const [characters, setCharacters] = useState<Array<Character>>([{ id: 'Sildar' }, { id: 'Gundren' }]);
+export default function CharacterList({characters} : {characters: Array<Character>}) {
     const [formOpen, setFormOpen] = useState<boolean>(false);
 
     function saveNewCharacter(data: Character) {
-        setCharacters(prev => [...prev, data]);
+        // TODO: Persist character data to API
+        console.log(data);
         setFormOpen(false);
     }
 
@@ -18,11 +18,11 @@ export default function CharacterList() {
         <div>
             {formOpen && <CharacterForm formAction={saveNewCharacter} existingData={null} />}
             <button className="border rounded p-1 cursor-pointer" onClick={() => setFormOpen(!formOpen)}>{formOpen ? 'Cancel' : 'Create New Character'}</button>
-            {(characters.length === 0) && <span>No characters found.</span>}
-            {(characters.length > 0) && (
+            {(!characters || characters?.length === 0) && <div>No characters found.</div>}
+            {(characters?.length > 0) && (
                 <ul className="my-4">
-                    {characters.map(c => (
-                        <li className="my-1 underline" key={c.id}><Link href={'characters/' + c.id}>{c.id}</Link></li>
+                    {characters?.map(c => (
+                        <li className="my-1 underline" key={c.id}><Link href={'characters/' + c.id}>{c.name}</Link></li>
                     ))}
                 </ul>
             )}
