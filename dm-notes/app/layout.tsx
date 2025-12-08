@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="pt-2 pb-1 bg-red-500 border-b">
+        <div className="pt-2 pb-1 bg-red-900 border-b">
           <nav className="flex items-baseline">
             <div className="text-xl mx-2"><Link href={"/"}>DM Notes</Link></div>
             <ul className="mx-2 my-0 text-sm">
