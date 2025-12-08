@@ -17,6 +17,6 @@ export async function POST(request: Request) {
     const {name} = data;
     if (!name) return Response.json({message: "'name' is required.", error: true}, {status: 400});
 
-    const result = await db.query('INSERT INTO characters (name) VALUES ($1) RETURN id, name', [name]);
+    const result = await db.query('INSERT INTO characters (name) VALUES ($1) RETURNING id, name', [name]);
     return Response.json({data: result.rows[0], error: false});
 }

@@ -9,13 +9,14 @@ export default function CharacterList({ characters }: { characters: Array<Charac
     const [formOpen, setFormOpen] = useState<boolean>(false);
 
     async function postCharacter(data: Character) {
-        const response = await fetch(`${process.env.SITE_URL}/api/v1/characters`, { method: 'POST', body: JSON.stringify(data) });
+        const response = await fetch('/api/v1/stat-blocks/characters', { method: 'POST', body: JSON.stringify(data) });
         if (response.ok) {
             const newCharacter = (await response.json()).data;
-            console.log(data);
-            characters.push(data);
+            characters.push(newCharacter);
         }
-    
+        else {
+            console.log((await response.json()));
+        }    
     }
 
     async function saveNewCharacter(data: Character) {
