@@ -5,12 +5,22 @@ import { Character } from "./Character";
 import Link from "next/link";
 import CharacterForm from "./CharacterForm";
 
-export default function CharacterList({characters} : {characters: Array<Character>}) {
+export default function CharacterList({ characters }: { characters: Array<Character> }) {
     const [formOpen, setFormOpen] = useState<boolean>(false);
 
-    function saveNewCharacter(data: Character) {
-        // TODO: Persist character data to API
+    async function postCharacter(data: Character) {
+        const response = await fetch(`${process.env.SITE_URL}/api/v1/characters`, { method: 'POST', body: JSON.stringify(data) });
+        if (response.ok) {
+            const newCharacter = (await response.json()).data;
+            console.log(data);
+            characters.push(data);
+        }
+    
+    }
+
+    async function saveNewCharacter(data: Character) {
         console.log(data);
+        await postCharacter(data);
         setFormOpen(false);
     }
 
