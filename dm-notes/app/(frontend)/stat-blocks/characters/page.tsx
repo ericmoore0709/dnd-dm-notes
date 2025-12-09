@@ -6,7 +6,7 @@ export default async function page() {
 
     return (
         <div className="text-center m-5">
-            <h1 className="text-2xl my-2">Characters List</h1>
+            <h1 className="text-2xl my-2">Characters</h1>
             <CharacterList characters={data} />
         </div>
     );

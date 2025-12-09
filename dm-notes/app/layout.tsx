@@ -30,9 +30,11 @@ export default function RootLayout({
       >
         <div className="pt-2 pb-1 bg-red-900 border-b">
           <nav className="flex items-baseline">
-            <div className="text-xl mx-2"><Link href={"/"}>DM Notes</Link></div>
+            <div className="text-xl mx-2 hover:text-black"><Link href={"/"}>DM Notes</Link></div>
             <ul className="mx-2 my-0 text-sm">
-              <li className="mr-2 hover:underline"><Link href={"/stat-blocks/characters"}>Characters</Link></li>
+              <li className="mr-5 hover:underline inline"><Link href={"/stat-blocks/characters"}>Characters</Link></li>
+              <li className="mr-5 hover:underline inline"><Link href={"/stat-blocks/monsters"}>Monsters</Link></li>
+              <li className="mr-5 hover:underline inline"><Link href={"/weapons"}>Weapons</Link></li>
             </ul>
           </nav>
         </div>
