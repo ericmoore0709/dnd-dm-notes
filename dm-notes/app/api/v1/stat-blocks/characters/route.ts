@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 
-export async function GET(request: Request) {
+export async function GET() {
     const result = await db.query('SELECT * FROM characters');
     return Response.json({ data: result.rows, error: false });
 }
