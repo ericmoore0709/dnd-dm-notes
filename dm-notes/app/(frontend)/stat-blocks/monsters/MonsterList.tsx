@@ -8,7 +8,7 @@ import MonsterForm from "./MonsterForm";
 export default function MonsterList({ monsters }: { monsters: Array<Monster> }) {
     const [formOpen, setFormOpen] = useState<boolean>(false);
 
-    async function postMonster(data: {name: string}) {
+    async function postMonster(data: Monster) {
         const response = await fetch('/api/v1/stat-blocks/monsters', { method: 'POST', body: JSON.stringify(data) });
         if (response.ok) {
             const newMonster = (await response.json()).data;
@@ -19,7 +19,7 @@ export default function MonsterList({ monsters }: { monsters: Array<Monster> }) 
         }
     }
 
-    async function saveNewMonster(data: {name: string}) {
+    async function saveNewMonster(data: Monster) {
         console.log(data);
         await postMonster(data);
         setFormOpen(false);

@@ -2,7 +2,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Monster } from "./Monster";
 
-export default function MonsterForm({ formAction, existingData }: { formAction: (data: {name: string}) => void, existingData: Monster | null }) {
+export default function MonsterForm({ formAction, existingData }: { formAction: (data: Monster) => void, existingData: Monster | null }) {
     const INITIAL_FORM_DATA = { name: '' };
     const [formData, setFormData] = useState(existingData || INITIAL_FORM_DATA);
 

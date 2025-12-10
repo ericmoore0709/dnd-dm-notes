@@ -2,7 +2,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Character } from "./Character";
 
-export default function CharacterForm({ formAction, existingData }: { formAction: Function, existingData: Character | null }) {
+export default function CharacterForm({ formAction, existingData }: { formAction: (data: Character) => void, existingData: Character | null }) {
     const INITIAL_FORM_DATA = { name: '' };
     const [formData, setFormData] = useState(existingData || INITIAL_FORM_DATA);
 
