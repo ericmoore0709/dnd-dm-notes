@@ -1,4 +1,5 @@
 export interface Weapon {
     id: string,
-    name: string
+    name: string,
+    damage_dice: string
 }
